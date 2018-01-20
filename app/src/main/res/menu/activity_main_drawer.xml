@@ -6,46 +6,33 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_first_layout"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/plus_bell"
             android:title="Tasks" />
         <item
             android:id="@+id/nav_second_layout"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/calendar_clock"
             android:title="Second Layout" />
         <item
             android:id="@+id/nav_third_layout"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/calendar_text"
             android:title="Calendar" />
         <item
             android:id="@+id/nav_fourth_layout"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/cube_move"
             android:title="Fourth Layout" />
         <item
             android:id="@+id/nav_fifth_layout"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/profile_circle"
             android:title="Fifth Layout" />
         <item
             android:id="@+id/nav_sixth_layout"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/file_tree"
             android:title="Sixth Layout" />
         <item
             android:id="@+id/nav_seventh_layout"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/plus_bell"
             android:title="Seventh Layout" />
 
     </group>
-
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_add"
-                android:icon="@drawable/ic_menu_add"
-                android:title="Send" />
-        </menu>
-    </item>
 
 </menu>

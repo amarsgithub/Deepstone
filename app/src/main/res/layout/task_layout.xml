@@ -18,7 +18,7 @@
         android:layout_gravity="center"
         android:layout_marginStart="4dp"
         android:layout_marginEnd="4dp"
-        android:src="@drawable/ic_menu_send" />
+        android:src="@drawable/plus_bell" />
 
     <TextView
         android:id="@+id/task_name"
