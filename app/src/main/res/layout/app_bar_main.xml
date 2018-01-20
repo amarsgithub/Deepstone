@@ -10,7 +10,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:background="@color/gunmetal" />
+        android:background="#112428" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -45,13 +45,13 @@
             android:layout_width="128dp"
             android:layout_height="64dp"
             android:orientation="vertical"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="4dp">
 
             <ProgressBar
                 android:id="@+id/experience_bar"
-                android:layout_width="128dp"
-                android:layout_height="22dp"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
                 android:progress="70"
                 android:scaleY="4"
                 style="?android:attr/progressBarStyleHorizontal" />

@@ -3,9 +3,13 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/dark_slate_blue</item>
+        <item name="colorPrimary">#112428</item>
         <item name="colorPrimaryDark">@color/night</item>
-        <item name="colorAccent">@color/metallic_silver</item>
+        <item name="colorAccent">@android:color/holo_blue_bright</item>
+        <item name="android:textColorSecondary">@color/platinum</item>
+        <item name="android:colorBackground">@color/dark_slate_blue</item>
+        <item name="android:textColorPrimaryInverse">@color/iridium</item>
+        <item name="android:textColorPrimary">@color/platinum</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
