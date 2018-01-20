@@ -46,7 +46,7 @@ public class FirstFragment extends Fragment {
         b.experience = -14;
 
         System.out.println("TaskArrayAdapter");
-        ListAdapter listAdapter = new TaskArrayAdapter(getActivity(), Lists.newArrayList(a, b));
+        ListAdapter listAdapter = new TaskArrayAdapter(getActivity(), Lists.newArrayList(a, b, new Task(), new Task(), new Task()));
         System.out.println("Success!");
         ListView listView = myView.findViewById(R.id.tasks_list);
 
