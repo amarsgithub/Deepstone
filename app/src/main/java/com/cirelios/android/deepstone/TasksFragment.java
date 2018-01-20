@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -16,13 +15,7 @@ import com.cirelios.android.deepstone.task.Task;
 import com.cirelios.android.deepstone.task.TaskArrayAdapter;
 import com.google.common.collect.Lists;
 
-import java.util.List;
-
-/**
- * Created by amars on 1/20/2018.
- */
-
-public class FirstFragment extends Fragment {
+public class TasksFragment extends Fragment {
 
     View myView;
 
@@ -34,7 +27,7 @@ public class FirstFragment extends Fragment {
     @Nullable
    // @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        myView = inflater.inflate(R.layout.first_layout, container, false);
+        myView = inflater.inflate(R.layout.tasks_layout, container, false);
 
         Task a = new Task();
         a.name = "Task A";

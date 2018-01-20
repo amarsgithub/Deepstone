@@ -11,14 +11,14 @@ import android.view.ViewGroup;
  * Created by amars on 1/20/2018.
  */
 
-public class FourthFragment extends Fragment {
+public class ProfileFragment extends Fragment {
 
     View myView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        myView = inflater.inflate(R.layout.fourth_layout, container, false);
+        myView = inflater.inflate(R.layout.profile_layout, container, false);
         return myView;
     }
 }

@@ -11,14 +11,14 @@ import android.view.ViewGroup;
  * Created by amars on 1/20/2018.
  */
 
-public class SixthFragment extends Fragment {
+public class SkillsFragment extends Fragment {
 
     View myView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        myView = inflater.inflate(R.layout.sixth_layout, container, false);
+        myView = inflater.inflate(R.layout.skills_layout, container, false);
         return myView;
     }
 }

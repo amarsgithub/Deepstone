@@ -5,33 +5,33 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_first_layout"
+            android:id="@+id/nav_tasks"
             android:icon="@drawable/plus_bell"
             android:title="Tasks" />
         <item
-            android:id="@+id/nav_second_layout"
+            android:id="@+id/nav_calendar"
             android:icon="@drawable/calendar_clock"
-            android:title="Second Layout" />
-        <item
-            android:id="@+id/nav_third_layout"
-            android:icon="@drawable/calendar_text"
             android:title="Calendar" />
         <item
-            android:id="@+id/nav_fourth_layout"
+            android:id="@+id/nav_categories"
+            android:icon="@drawable/calendar_text"
+            android:title="Categories" />
+        <item
+            android:id="@+id/nav_groups"
             android:icon="@drawable/cube_move"
-            android:title="Fourth Layout" />
+            android:title="Groups" />
         <item
-            android:id="@+id/nav_fifth_layout"
+            android:id="@+id/nav_skills"
             android:icon="@drawable/profile_circle"
-            android:title="Fifth Layout" />
+            android:title="Skills" />
         <item
-            android:id="@+id/nav_sixth_layout"
+            android:id="@+id/nav_profile"
             android:icon="@drawable/file_tree"
-            android:title="Sixth Layout" />
+            android:title="Profile" />
         <item
-            android:id="@+id/nav_seventh_layout"
+            android:id="@+id/nav_settings"
             android:icon="@drawable/plus_bell"
-            android:title="Seventh Layout" />
+            android:title="Settings" />
 
     </group>
 

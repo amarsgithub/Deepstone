@@ -16,7 +16,7 @@ import android.widget.TextView;
  * Created by amars on 1/20/2018.
  */
 
-public class ThirdFragment extends Fragment {
+public class CalendarFragment extends Fragment {
 
     View myView;
     private static final String TAG = "CalendarActivity";
@@ -28,7 +28,7 @@ public class ThirdFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        myView = inflater.inflate(R.layout.third_layout, container, false);
+        myView = inflater.inflate(R.layout.calendar_layout, container, false);
 
         calendarView = (CalendarView) myView.findViewById(R.id.calendarView);
         physics = (TextView) myView.findViewById(R.id.physics);
