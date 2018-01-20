@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="night">#0C090A</color>
+    <color name="gunmetal">#2C3539</color>
+    <color name="iridium">#3D3C3A</color>
+    <color name="platinum">#E5E4E2</color>
+    <color name="metallic_silver">#BCC6CC</color>
+    <color name="slate_gray">#657383</color>
+    <color name="dark_slate_blue">#2B3856</color>
 </resources>
