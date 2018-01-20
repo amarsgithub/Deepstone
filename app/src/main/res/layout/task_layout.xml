@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:orientation="horizontal"
+    android:background="@color/dark_slate_blue" >
+
+    <TextView
+        android:id="@+id/task_color"
+        android:layout_width="12dp"
+        android:layout_height="match_parent"
+        android:background="@color/metallic_silver"/>
+
+    <RelativeLayout
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:background="@color/metallic_silver">
+
+        <ImageView
+            android:id="@+id/task_icon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_menu_send"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/task_name"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:text="Task Name"
+        android:textColor="@color/metallic_silver"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/task_experience"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="XP"
+        android:textSize="24sp"
+        android:textColor="@color/metallic_silver" />
+
+    <CheckBox
+        android:id="@+id/task_check_box"
+        android:layout_width="32dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center" />
+
+
+</LinearLayout>
