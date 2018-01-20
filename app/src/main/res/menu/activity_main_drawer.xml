@@ -15,7 +15,23 @@
         <item
             android:id="@+id/nav_third_layout"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Third Layout" />
+            android:title="Calendar" />
+        <item
+            android:id="@+id/nav_fourth_layout"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Fourth Layout" />
+        <item
+            android:id="@+id/nav_fifth_layout"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Fifth Layout" />
+        <item
+            android:id="@+id/nav_sixth_layout"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Sixth Layout" />
+        <item
+            android:id="@+id/nav_seventh_layout"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Seventh Layout" />
 
     </group>
 
@@ -26,8 +42,8 @@
                 android:icon="@drawable/ic_menu_share"
                 android:title="Share" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
+                android:id="@+id/nav_add"
+                android:icon="@drawable/ic_menu_add"
                 android:title="Send" />
         </menu>
     </item>

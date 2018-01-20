@@ -2,12 +2,43 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp" />
+
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="104dp"
-        android:text="Third Layout" />
+        android:layout_alignStart="@+id/calendarView"
+        android:layout_marginTop="15dp"
+        android:textSize="24sp"
+        android:text="Calendar" />
+
+    <TextView
+        android:id="@+id/physics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/calendarView"
+        android:layout_below="@+id/calendarView"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="17dp"
+        android:text="Physics"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/swampHacks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/physics"
+        android:layout_alignBottom="@+id/physics"
+        android:layout_alignEnd="@+id/calendarView"
+        android:layout_marginEnd="35dp"
+        android:text="SwampHacks"
+        android:textSize="22sp" />
 </RelativeLayout>
