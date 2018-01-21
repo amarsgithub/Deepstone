@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/ds_overlay_assignments"
+        android:icon="@drawable/clipboard_text"
+        android:title="Assignments" />
+    <item
+        android:id="@+id/ds_overlay_calendar"
+        android:icon="@drawable/calendar_clock"
+        android:title="Calendar" />
+    <item
+        android:id="@+id/ds_overlay_classes"
+        android:icon="@drawable/school"
+        android:title="Classes" />
+    <item
+        android:id="@+id/ds_overlay_skills"
+        android:icon="@drawable/sword"
+        android:title="Skills" />
+    <item
+        android:id="@+id/ds_overlay_profile"
+        android:icon="@drawable/account"
+        android:title="Profile" />
+    <item
+        android:id="@+id/ds_overlay_settings"
+        android:icon="@drawable/wrench"
+        android:title="Settings" />
+    <group>
+        <item
+            android:id="@+id/ds_overlay_home"
+            android:icon="@drawable/cube_outline"
+            android:title="Home" />
+    </group>
+
+</menu>

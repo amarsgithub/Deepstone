@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="56dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:theme="@style/AppTheme.NoActionBar.DarkText">
+
+        <RelativeLayout
+            android:background="@color/Primary"
+            android:layout_width="match_parent"
+            android:layout_height="32dp">
+
+            <ImageView
+                android:id="@+id/ds_settings_image"
+                android:layout_marginStart="16dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/wrench"
+                android:layout_centerVertical="true" />
+
+            <TextView
+                android:text="Settings"
+                android:textSize="18dp"
+                android:layout_marginStart="32dp"
+                android:layout_toEndOf="@id/ds_settings_image"
+                android:textColor="@color/Accent"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_alignParentEnd="true"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_marginEnd="64dp"
+                android:textColor="@color/Accent"
+                android:layout_height="match_parent"
+                android:text="Date"
+                android:textSize="18dp" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="32dp">
+
+                <TextView
+                    android:text="Notifications"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    android:textColor="@color/MidnightBlue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <Switch
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginStart="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="24dp">
+
+                <TextView
+                    android:text="• Class 1"
+                    android:textSize="18dp"
+                    android:textStyle="italic"
+                    android:textColor="@color/MetallicSilver"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <CheckBox
+                    android:layout_marginEnd="16dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginStart="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="24dp">
+
+                <TextView
+                    android:text="• Class 2"
+                    android:textSize="18dp"
+                    android:textColor="@color/MetallicSilver"
+                    android:textStyle="italic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <CheckBox
+                    android:layout_marginEnd="16dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginStart="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="24dp">
+
+                <TextView
+                    android:text="• Class 3"
+                    android:textSize="18dp"
+                    android:textColor="@color/MetallicSilver"
+                    android:textStyle="italic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <CheckBox
+                    android:layout_marginEnd="16dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="32dp">
+
+                <TextView
+                    android:text="Calendar"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    android:textColor="@color/MidnightBlue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginStart="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="24dp">
+
+                <TextView
+                    android:text="• European Date (dd/mm/yyyy)"
+                    android:textSize="18dp"
+                    android:textColor="@color/MetallicSilver"
+                    android:textStyle="italic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <CheckBox
+                    android:layout_marginEnd="16dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginStart="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="24dp">
+
+                <TextView
+                    android:text="• American Holidays"
+                    android:textSize="18dp"
+                    android:textStyle="italic"
+                    android:textColor="@color/MetallicSilver"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <CheckBox
+                    android:layout_marginEnd="16dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="32dp">
+
+                <TextView
+                    android:text="Sounds"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    android:textColor="@color/MidnightBlue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <Switch
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="32dp">
+
+                <TextView
+                    android:text="Theme"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    android:textColor="@color/MidnightBlue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <Switch
+                    android:id="@+id/ds_settings_notification"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginStart="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="24dp">
+
+                <TextView
+                    android:text="• Coming soon..."
+                    android:textSize="18dp"
+                    android:textStyle="italic"
+                    android:textColor="@color/MetallicSilver"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <CheckBox
+                    android:layout_marginEnd="16dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="32dp">
+
+                <TextView
+                    android:text="Credits"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    android:textColor="@color/MidnightBlue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginStart="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="24dp">
+
+                <TextView
+                    android:text="Blake Anderson | William Pembleton"
+                    android:textSize="18dp"
+                    android:textStyle="italic"
+                    android:textColor="@color/MetallicSilver"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:id="@+id/textView2" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginStart="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="24dp">
+
+                <TextView
+                    android:text="• Congressional App Challenge 2016"
+                    android:textSize="18dp"
+                    android:textStyle="italic"
+                    android:textColor="@color/MetallicSilver"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

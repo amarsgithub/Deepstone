@@ -7,6 +7,7 @@
         <item name="colorPrimaryDark">@color/PrimaryDark</item>
         <item name="colorAccent">@color/AndroidBlue</item>
         <item name="android:colorBackground">@color/Iridium</item>
+        <item name="android:textColor">@color/MetallicSilver</item>
         <item name="android:textColorPrimary">@color/CarbonGray</item>
         <item name="android:textColorPrimaryInverse">@color/Iridium</item>
         <item name="android:textColorSecondaryInverse">@color/Iridium</item>

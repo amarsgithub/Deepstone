@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="56dp">
+
+    <RelativeLayout
+        android:background="@color/Primary"
+        android:layout_width="match_parent"
+        android:layout_height="32dp">
+
+        <ImageView
+            android:id="@+id/ds_task_image"
+            android:layout_marginStart="16dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/clipboard_text"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:text="Task List"
+            android:textSize="18dp"
+            android:layout_marginStart="24dp"
+            android:layout_toEndOf="@id/ds_task_image"
+            android:textColor="@color/Accent"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:layout_alignParentEnd="true"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="56dp"
+            android:textColor="@color/Accent"
+            android:layout_height="match_parent"
+            android:text="Nov. 1"
+            android:textSize="18dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout android:id="@+id/ds_noTasks"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/DarkSlateBlue">
+
+        <TextView
+            android:layout_width="8dp"
+            android:layout_height="match_parent"
+            android:background="@color/Firebrick"/>
+
+        <ImageView
+            android:layout_marginStart="8dp"
+            android:src="@drawable/icon_border_black"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center_vertical"/>
+
+        <ImageView
+            android:src="@drawable/alert"
+            android:layout_marginStart="-34dp"
+            android:layout_width="31dp"
+            android:layout_height="31dp"
+            android:layout_gravity="center_vertical" />
+
+        <TextView
+            android:layout_marginStart="12dp"
+            android:text="No Tasks!"
+            android:textSize="24dp"
+            android:textColor="@color/Night"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1" />
+
+        <Button android:id="@+id/ds_task_create"
+            android:layout_gravity="center_vertical"
+            android:layout_height="42dp"
+            android:layout_width="108dp"
+            android:layout_marginEnd="8dp"
+            android:text="Create!"
+            android:textColor="@color/EerieBlack"
+            android:theme="@style/AppTheme.NoActionBar.DarkText"/>
+
+    </LinearLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp">
+
+        <ListView android:id="@+id/task_display"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark" />
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>
