@@ -154,19 +154,19 @@ public class Utils {
     }
 
     public static void initializeDefaults() {
-        CategoryStruct art = createCategory("Art", R.color.DeepPink, R.drawable.brush);
+        CategoryStruct art = createCategory("Art", R.color.RubberDuckyYellow, R.drawable.brush);
         CategoryStruct calculus = createCategory("Calculus", R.color.HeliotropePurple, R.drawable.matrix);
         CategoryStruct chemistry = createCategory("Chemistry", R.color.NebulaGreen, R.drawable.flask);
-        CategoryStruct history = createCategory("History", R.color.Night, R.drawable.earth);
-        CategoryStruct english = createCategory("English", R.color.Yellow, R.drawable.book_open_page_variant);
+        CategoryStruct history = createCategory("History", R.color.Brown, R.drawable.earth);
+        CategoryStruct english = createCategory("English", R.color.DeepPink, R.drawable.book_open_page_variant);
         CategoryStruct physics = createCategory("Physics", R.color.Firebrick, R.drawable.magnet_on);
         CategoryStruct programming = createCategory("Programming", R.color.PumpkinOrange, R.drawable.buffer);
         CategoryStruct swamphacks = createCategory("SwampHacks", R.color.AndroidBlue, R.drawable.alert);
         createTask(art, "Tesselation", 1516548600000L, 7200, 230);
-        createTask(calculus, "WebAssign #3", 1516942799000L, 10800, 560);
+        createTask(calculus, "WebAssign #3", 1516942799000L, 10800, 460);
         createTask(calculus, "Study Group", 1516797000000L, 3600, 110);
         createTask(chemistry, "Titration Lab", 1516643400000L, 12600, 740);
-        createTask(physics, "Mechanics HW", 1516894800000L, 5400, 400);
+        createTask(physics, "Mechanics HW", 1516894800000L, 5400, 610);
         createTask(programming, "Unity Lessons", 1517350200000L, 25200, 1280);
         createTask(swamphacks, "Time Controller", 1516548600000L, 129600, 9001);
         for (TaskStruct task : TASKS.values()) {

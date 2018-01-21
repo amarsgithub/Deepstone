@@ -97,7 +97,10 @@ public class CreateTaskFragment extends Fragment {
                 task.Category = category;
                 task.Name = asgmtName.getText().toString();
                 task.Description = asgmtDesc.getText().toString();
-                task.Experience = 60;
+                task.Time = timeBar.getProgress();
+                task.Experience = (int) (Math.sqrt(difficultyBar.getProgress()) * urgencyBar.getProgress() * task.Time * 3 / 10);
+                System.out.println(task.Experience);
+                task.DueDate = Long.MAX_VALUE;
                 Utils.TASKS.put(task.Name, task);
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left)
