@@ -6,28 +6,35 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
 public class Utils {
 
     public static final ImmutableMap<String, Integer> COLORS = ImmutableMap.<String, Integer>builder()
-            .put("light red", R.color.Scarlet)
-            .put("dark red", R.color.Firebrick)
-            .put("orange", R.color.PumpkinOrange)
-            .put("yellow", R.color.RubberDuckyYellow)
-            .put("light green", R.color.NebulaGreen)
-            .put("dark green", R.color.DarkSeaGreen)
-            .put("light blue", R.color.CyanAqua)
-            .put("dark blue", R.color.MidnightBlue)
-            .put("light purple", R.color.HeliotropePurple)
-            .put("dark purple", R.color.PurpleIris)
-            .put("pink", R.color.DeepPink)
-            .put("brown", R.color.Mocha)
-            .put("white", R.color.Platinum)
-            .put("light gray", R.color.DimGray)
-            .put("dark gray", R.color.Smoke)
-            .put("black", R.color.Night)
+            .put("Light Red", R.color.Scarlet)
+            .put("Dark Red", R.color.Firebrick)
+            .put("Orange", R.color.PumpkinOrange)
+            .put("Yellow", R.color.RubberDuckyYellow)
+            .put("Light Green", R.color.NebulaGreen)
+            .put("Dark Green", R.color.DarkSeaGreen)
+            .put("Light Blue", R.color.CyanAqua)
+            .put("Dark Blue", R.color.MidnightBlue)
+            .put("Light Purple", R.color.HeliotropePurple)
+            .put("Dark Purple", R.color.PurpleIris)
+            .put("Pink", R.color.DeepPink)
+            .put("Brown", R.color.Mocha)
+            .put("White", R.color.Platinum)
+            .put("Light Gray", R.color.DimGray)
+            .put("Dark Gray", R.color.Smoke)
+            .put("Black", R.color.Night)
             .build();
 
     public static final ImmutableMap<String, Integer> ICONS = ImmutableMap.<String, Integer>builder()
@@ -83,22 +90,161 @@ public class Utils {
     public static final Map<String, TaskStruct> TASKS = Maps.newHashMap();
     public static final Map<String, CategoryStruct> CATEGORIES = Maps.newHashMap();
 
+    public static final TaskStruct[][] CALENDAR = new TaskStruct[7][5];
+
     public static int calculateXP(int diff, int time) {
         return (int) Math.round(Math.sqrt(diff) * time);
     }
 
+    public static String getTitle(int level) {
+        if (level < 5)
+            return "Novice";
+        if (level >= 5 && level < 10)
+            return "Apprentice";
+        if (level >= 10 && level < 15)
+            return "Initiate";
+        if (level >= 15 && level < 20)
+            return "Journeyman";
+        if (level >= 20 && level < 30)
+            return "Adept";
+        if (level >= 30 && level < 40)
+            return "Magus";
+        if (level >= 40 && level < 50)
+            return "Master";
+        if (level >= 50 && level < 60)
+            return "Grandmaster";
+        if (level >= 60 && level < 70)
+            return "Legendary";
+        if (level >= 70 && level < 80)
+            return "Transcendent";
+        if (level >= 80 && level < 90)
+            return "Archmage";
+        if (level >= 90 && level < 100)
+            return "Promethean";
+        if (level >= 100 && level < 110)
+            return "Exalted";
+        if (level >= 110 && level < 1000)
+            return "Prodigious";
+        return "Overlord";
+    }
+
     public static List<TaskStruct> getSortedTasks() {
-        return Lists.newArrayList(TASKS.values());
-        /*return TASKS.values().stream()
-                .sorted(Comparator.comparing(o -> o.Experience))
-                .collect(Collectors.toList());*/
+        List<TaskStruct> tasks = Lists.newArrayList(TASKS.values());
+        Collections.sort(tasks, new Comparator<TaskStruct>() {
+            @Override
+            public int compare(TaskStruct t1, TaskStruct t2) {
+                return Integer.compare(t1.Experience, t2.Experience);
+            }
+        });
+        return tasks;
     }
 
     public static List<CategoryStruct> getSortedCategories() {
-        return Lists.newArrayList(CATEGORIES.values());
-        /*return CATEGORIES.values().stream()
-                .sorted(Comparator.comparing(o -> o.Name))
-                .collect(Collectors.toList());*/
+        List<CategoryStruct> Categories = Lists.newArrayList(CATEGORIES.values());
+        Collections.sort(Categories, new Comparator<CategoryStruct>() {
+            @Override
+            public int compare(CategoryStruct c1, CategoryStruct c2) {
+                return c1.Name.compareTo(c2.Name);
+            }
+        });
+        return Categories;
+    }
+
+    public static void initializeDefaults() {
+        CategoryStruct art = createCategory("Art", R.color.Jellyfish, R.drawable.brush);
+        CategoryStruct calculus = createCategory("Calculus", R.color.Night, R.drawable.matrix);
+        CategoryStruct chemistry = createCategory("Chemistry", R.color.NebulaGreen, R.drawable.flask);
+        CategoryStruct history = createCategory("History", R.color.HeliotropePurple, R.drawable.earth);
+        CategoryStruct english = createCategory("English", R.color.Yellow, R.drawable.book_open_page_variant);
+        CategoryStruct physics = createCategory("Physics", R.color.Firebrick, R.drawable.magnet_on);
+        CategoryStruct programming = createCategory("Programming", R.color.PumpkinOrange, R.drawable.buffer);
+        CategoryStruct swamphacks = createCategory("SwampHacks", R.color.DeepPink, R.drawable.alert);
+        createTask(art, "Tesselation", 1516548600000L, 7200, 120);
+        createTask(calculus, "WebAssign #3", 1516942799000L, 10800, 560);
+        createTask(calculus, "Study Group", 1516797000000L, 3600, 90);
+        createTask(chemistry, "Titration Lab", 1516643400000L, 12600, 740);
+        createTask(physics, "Mechanics HW", 1516894800000L, 5400, 400);
+        createTask(programming, "Unity Lessons", 1517350200000L, 25200, 1280);
+        createTask(swamphacks, "Life Controller", 1516548600000L, 129600, 9001);
+    }
+
+    private static void createTask(CategoryStruct category, String name, long dueDate, int time, int experience) {
+        TaskStruct task = new TaskStruct();
+        task.Category = category;
+        task.Name = name;
+        task.DueDate = dueDate;
+        task.Time = time;
+        task.Experience = experience;
+        TASKS.put(name, task);
+    }
+
+    private static CategoryStruct createCategory(String name, int color, int icon) {
+        CategoryStruct category = new CategoryStruct();
+        category.Name = name;
+        category.Color = color;
+        category.Icon = icon;
+        CATEGORIES.put(name, category);
+        return category;
+    }
+
+    private static void storeInDatabase() {
+        Connection c = null;
+        Statement stmt = null;
+        String sql = null;
+
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:SQLite.db");
+            c.setAutoCommit(false);
+            System.out.println("Opened database successfully");
+
+            //	below code checks if a table exists. If it doesn't, it creates the table.
+            DatabaseMetaData md = c.getMetaData();
+            ResultSet rs = md.getTables(null, null, "%", null);
+            stmt = c.createStatement();
+            if (!rs.next()) {
+                sql = "CREATE TABLE EVENT (ID INTEGER PRIMARY KEY AUTOINCREMENT, MONTH INT, " +
+                        "YEAR INT, YEAR HOUR, HOUR INT, MINUTE INT, EVENT STRING, XP INT)"
+                        + " GUESS NOT NULL)";
+                stmt.executeUpdate(sql);
+            }
+
+            c.commit();
+            rs.close();
+
+            sql = "INSERT INTO EVENT (DAY, MONTH, YEAR, HOUR, MINUTE, EVENT, XP) "
+                    + "VALUES (21, 1, 2018, 2, 0, 'SwampHacks', 250);";
+
+            stmt.executeUpdate(sql);
+
+            System.out.println("Stored value in the database");
+
+            ResultSet rs2 = stmt.executeQuery("SELECT * FROM GUESS;");
+
+            while (rs2.next()) {
+                int id = rs2.getInt("id");
+                String name = rs2.getString("FIRSTNAME");
+                String nickname = rs2.getString("NICKNAME");
+                int userGuess = rs2.getInt("GUESS");
+
+                System.out.println("Id = " + id);
+                System.out.println("Name = " + name);
+                System.out.println("Nickname = " + nickname);
+                System.out.println("Age = " + userGuess);
+
+            }
+
+            rs2.close();
+
+            c.commit();
+            stmt.close();
+            c.close();
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage() + "\n");
+            e.printStackTrace();
+        }
+
     }
 
 }

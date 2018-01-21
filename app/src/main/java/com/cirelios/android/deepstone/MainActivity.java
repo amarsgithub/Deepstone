@@ -27,12 +27,6 @@ import com.cirelios.android.deepstone.fragments.SkillsFragment;
 import com.cirelios.android.deepstone.task.CreateTaskFragment;
 import com.cirelios.android.deepstone.task.TasksFragment;
 
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -119,7 +113,10 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.ds_overlay_assignments) {
+        if (id == R.id.ds_overlay_home) {
+            Utils.initializeDefaults();
+            sendToFragment(new HomeFragment());
+        } else if (id == R.id.ds_overlay_assignments) {
             sendToFragment(new TasksFragment());
         } else if (id == R.id.ds_overlay_calendar) {
             sendToFragment(new CalendarFragment());
@@ -131,8 +128,6 @@ public class MainActivity extends AppCompatActivity
             sendToFragment(new ProfileFragment());
         } else if (id == R.id.ds_overlay_settings) {
             sendToFragment(new SettingsFragment());
-        } else if (id == R.id.ds_overlay_home) {
-            sendToFragment(new HomeFragment());
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -410,65 +405,27 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    private static void storeInDatabase() {
-        Connection c = null;
-        Statement stmt = null;
-        String sql = null;
-
-        try {
-            Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:SQLite.db");
-            c.setAutoCommit(false);
-            System.out.println("Opened database successfully");
-
-            //	below code checks if a table exists. If it doesn't, it creates the table.
-            DatabaseMetaData md = c.getMetaData();
-            ResultSet rs = md.getTables(null, null, "%", null);
-            stmt = c.createStatement();
-            if (!rs.next()){
-                sql = "CREATE TABLE EVENT (ID INTEGER PRIMARY KEY AUTOINCREMENT, MONTH INT, " +
-                        "YEAR INT, YEAR HOUR, HOUR INT, MINUTE INT, EVENT STRING, XP INT)"
-                        + " GUESS NOT NULL)";
-                stmt.executeUpdate(sql);
-            }
-
-            c.commit();
-            rs.close();
-
-            sql = "INSERT INTO EVENT (DAY, MONTH, YEAR, HOUR, MINUTE, EVENT, XP) "
-                    + "VALUES (21, 1, 2018, 2, 0, 'SwampHacks', 250);";
-
-            stmt.executeUpdate(sql);
-
-            System.out.println("Stored value in the database");
-
-            ResultSet rs2 = stmt.executeQuery("SELECT * FROM GUESS;");
-
-            while (rs2.next()) {
-                int id = rs2.getInt("id");
-                String name = rs2.getString("FIRSTNAME");
-                String nickname = rs2.getString("NICKNAME");
-                int userGuess = rs2.getInt("GUESS");
-
-                System.out.println("Id = " + id);
-                System.out.println("Name = " + name);
-                System.out.println("Nickname = " + nickname);
-                System.out.println("Age = " + userGuess);
-
-            }
-
-            rs2.close();
-
-            c.commit();
-            stmt.close();
-            c.close();
-
-        }catch (Exception e) {
-            System.out.println(e.getMessage() + "\n");
-            e.printStackTrace();
+    public static int addExperience(int addXP) {
+        int level = Integer.parseInt(experienceLevel.getText().toString().substring(6));
+        int addLevel = 0;
+        while (addXP >= experienceBar.getMax()) {
+            addXP -= experienceBar.getMax();
+            experienceBar.setProgress(experienceBar.getProgress() + addXP);
+            levelUp(++addLevel + level);
         }
-
+        if (addXP >= experienceBar.getMax()-experienceBar.getProgress()) {
+            experienceBar.setProgress(experienceBar.getProgress() + addXP - experienceBar.getMax());
+            levelUp(++addLevel + level);
+        } else {
+            experienceBar.setProgress(experienceBar.getProgress() + addXP);
+        }
+        return addLevel != 0 ? level : 0;
     }
 
+    public static void levelUp(int level) {
+        experienceBar.setMax((int) (20*Math.pow(level, 2) + 80));
+        experienceLevel.setText("Level " + level);
+        ds_appBar_title.setText(Utils.getTitle(level));
+    }
 
 }

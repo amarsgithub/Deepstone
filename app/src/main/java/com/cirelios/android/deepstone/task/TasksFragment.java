@@ -19,7 +19,6 @@ import android.widget.Toast;
 import com.cirelios.android.deepstone.R;
 import com.cirelios.android.deepstone.Utils;
 import com.cirelios.android.deepstone.category.CreateCategoryFragment;
-import com.cirelios.android.deepstone.managers.AssignmentsManager;
 
 public class TasksFragment extends ListFragment implements OnItemClickListener {
 
@@ -29,11 +28,11 @@ public class TasksFragment extends ListFragment implements OnItemClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tasks, container, false);
 
-        if (AssignmentsManager.getAssignmentList().isEmpty()) {
+        if (Utils.TASKS.isEmpty()) {
             Button createAssignment = view.findViewById(R.id.asgmt_create);
 
             if (Utils.CATEGORIES.isEmpty()) {
-                Snackbar.make(view, "No classes exist", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "No categories exist", Snackbar.LENGTH_LONG)
                         .setAction("CREATE", new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -48,7 +47,7 @@ public class TasksFragment extends ListFragment implements OnItemClickListener {
                     @Override
                     public void onClick(View v) {
                         new AlertDialog.Builder(getContext(), R.style.MyAlertDialogTheme)
-                                .setMessage("You must have an existing Category to create an Assignment!\n\nCreate a new Category?\n")
+                                .setMessage("You must have an existing category to create a task!\n\nCreate a new category?\n")
                                 .setPositiveButton("Yes!", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
@@ -94,11 +93,11 @@ public class TasksFragment extends ListFragment implements OnItemClickListener {
                 });
             }
         } else {
-            LinearLayout noAssignments = view.findViewById(R.id.ds_noAssignments);
+            LinearLayout noAssignments = view.findViewById(R.id.empty_tasks);
             noAssignments.setVisibility(LinearLayout.GONE);
             if (adapter != null) {
                 adapter.clear();
-                adapter.addAll(AssignmentsManager.getAssignmentList());
+                adapter.addAll(Utils.getSortedTasks());
             }
         }
 
@@ -108,7 +107,7 @@ public class TasksFragment extends ListFragment implements OnItemClickListener {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        adapter = new TaskAdapter(getActivity(), AssignmentsManager.getAssignmentList());
+        adapter = new TaskAdapter(getActivity(), Utils.getSortedTasks());
         setListAdapter(adapter);
         getListView().setOnItemClickListener(this);
     }

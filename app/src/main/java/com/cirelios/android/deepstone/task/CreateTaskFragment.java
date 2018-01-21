@@ -16,7 +16,6 @@ import android.widget.TextView;
 import com.cirelios.android.deepstone.R;
 import com.cirelios.android.deepstone.Utils;
 import com.cirelios.android.deepstone.category.CategoryStruct;
-import com.cirelios.android.deepstone.managers.AssignmentsManager;
 import com.google.common.collect.Lists;
 
 public class CreateTaskFragment extends Fragment {
@@ -99,7 +98,7 @@ public class CreateTaskFragment extends Fragment {
                 task.Name = asgmtName.getText().toString();
                 task.Description = asgmtDesc.getText().toString();
                 task.Experience = 60;
-                AssignmentsManager.addAssignment(task);
+                Utils.TASKS.put(task.Name, task);
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left)
                         .replace(R.id.fragment_container, new TasksFragment()).commit();

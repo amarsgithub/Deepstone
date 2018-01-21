@@ -41,7 +41,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="68dp"
                 android:gravity="center_vertical"
-                android:text="Apr. 3"
+                android:text="Jan. 20"
                 android:textColor="@color/Accent"
                 android:textSize="18dp" />
 

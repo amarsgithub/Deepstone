@@ -7,24 +7,34 @@
     android:background="@drawable/overlay_background">
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true">
 
         <TextView
-            android:text="Deepstone"
+            android:text="Time Controller"
             android:textSize="32dp"
             android:layout_marginTop="-6dp"
             android:textColor="#fff"
             android:textStyle="bold"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"/>
 
         <ImageView
-            android:src="@drawable/cube_outline"
+            android:src="@drawable/xbox_controller"
             android:layout_width="32dp"
-            android:layout_height="32dp" />
+            android:layout_height="32dp"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:text="Press START to succeed..."
+            android:textSize="24dp"
+            android:textColor="#fff"
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 

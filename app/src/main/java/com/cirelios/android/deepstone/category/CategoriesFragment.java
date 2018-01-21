@@ -26,12 +26,9 @@ public class CategoriesFragment extends ListFragment implements OnItemClickListe
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(categories, container, false);
 
-        if (Utils.TASKS.isEmpty()) {
-            ListView assignmentList = view.findViewById(R.id.list);
-            if (assignmentList != null) {
-                assignmentList.setVisibility(View.GONE);
-            }
-            Snackbar.make(view, "No classes exist", Snackbar.LENGTH_LONG)
+        if (Utils.CATEGORIES.isEmpty()) {
+            view.findViewById(R.id.list).setVisibility(View.GONE);
+            Snackbar.make(view, "No categories!", Snackbar.LENGTH_LONG)
                     .setAction("CREATE", new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -44,8 +41,7 @@ public class CategoriesFragment extends ListFragment implements OnItemClickListe
                     .setActionTextColor(getResources().getColor(R.color.NebulaGreen))
                     .show();
         } else {
-            LinearLayout empty = view.findViewById(R.id.empty_category);
-            empty.setVisibility(LinearLayout.GONE);
+            view.findViewById(R.id.empty_category).setVisibility(LinearLayout.GONE);
             if (adapter != null) {
                 adapter.clear();
                 adapter.addAll(Utils.getSortedCategories());
@@ -65,6 +61,8 @@ public class CategoriesFragment extends ListFragment implements OnItemClickListe
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        System.out.println("OnItemClick");
         Toast.makeText(getActivity(), "Category: " + position, Toast.LENGTH_SHORT).show();
     }
+
 }
