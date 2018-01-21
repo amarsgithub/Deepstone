@@ -31,6 +31,12 @@ import com.cirelios.android.deepstone.managers.CategoriesManager;
 import com.cirelios.android.deepstone.task.CreateTaskFragment;
 import com.cirelios.android.deepstone.task.TasksFragment;
 
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -284,7 +290,6 @@ public class MainActivity extends AppCompatActivity
         System.out.println("Day 3 was selected");
     }
 
-
     public void activity1(View view) {
         Button activity1Button = (Button) findViewById(R.id.activity1);
         Button day17 = (Button) findViewById(R.id.day17);
@@ -405,6 +410,66 @@ public class MainActivity extends AppCompatActivity
             day18.setBackgroundResource(R.drawable.button_border3);
             day25.setBackgroundResource(R.drawable.button_border3);
             activity5 = true;
+        }
+
+    }
+
+    private static void storeInDatabase() {
+        Connection c = null;
+        Statement stmt = null;
+        String sql = null;
+
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:SQLite.db");
+            c.setAutoCommit(false);
+            System.out.println("Opened database successfully");
+
+            //	below code checks if a table exists. If it doesn't, it creates the table.
+            DatabaseMetaData md = c.getMetaData();
+            ResultSet rs = md.getTables(null, null, "%", null);
+            stmt = c.createStatement();
+            if (!rs.next()){
+                sql = "CREATE TABLE EVENT (ID INTEGER PRIMARY KEY AUTOINCREMENT, MONTH INT, " +
+                        "YEAR INT, YEAR HOUR, HOUR INT, MINUTE INT, EVENT STRING, XP INT)"
+                        + " GUESS NOT NULL)";
+                stmt.executeUpdate(sql);
+            }
+
+            c.commit();
+            rs.close();
+
+            sql = "INSERT INTO EVENT (DAY, MONTH, YEAR, HOUR, MINUTE, EVENT, XP) "
+                    + "VALUES (21, 1, 2018, 2, 0, 'SwampHacks', 250);";
+
+            stmt.executeUpdate(sql);
+
+            System.out.println("Stored value in the database");
+
+            ResultSet rs2 = stmt.executeQuery("SELECT * FROM GUESS;");
+
+            while (rs2.next()) {
+                int id = rs2.getInt("id");
+                String name = rs2.getString("FIRSTNAME");
+                String nickname = rs2.getString("NICKNAME");
+                int userGuess = rs2.getInt("GUESS");
+
+                System.out.println("Id = " + id);
+                System.out.println("Name = " + name);
+                System.out.println("Nickname = " + nickname);
+                System.out.println("Age = " + userGuess);
+
+            }
+
+            rs2.close();
+
+            c.commit();
+            stmt.close();
+            c.close();
+
+        }catch (Exception e) {
+            System.out.println(e.getMessage() + "\n");
+            e.printStackTrace();
         }
 
     }
