@@ -96,7 +96,7 @@
 
                 <Spinner android:id="@+id/task_create_categories"
                     android:layout_alignParentEnd="true"
-                    android:layout_width="160dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
             </RelativeLayout>

@@ -5,7 +5,7 @@
         android:icon="@drawable/cube_outline"
         android:title="Home" />
     <item
-        android:id="@+id/ds_overlay_assignments"
+        android:id="@+id/ds_overlay_tasks"
         android:icon="@drawable/clipboard_text"
         android:title="Tasks" />
     <item
@@ -13,7 +13,7 @@
         android:icon="@drawable/calendar_clock"
         android:title="Calendar" />
     <item
-        android:id="@+id/ds_overlay_classes"
+        android:id="@+id/ds_overlay_categories"
         android:icon="@drawable/reorder_horizontal"
         android:title="Categories" />
     <item

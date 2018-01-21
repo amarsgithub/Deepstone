@@ -39,28 +39,22 @@ public class TaskAdapter extends ArrayAdapter<TaskStruct> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        final Holder holder;
-        if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.task_item, parent, false);
-            holder = new Holder();
-            holder.Item = convertView.findViewById(R.id.task_item);
-            holder.Name = convertView.findViewById(R.id.task_name);
-            holder.Color = convertView.findViewById(R.id.task_color);
-            holder.Icon = convertView.findViewById(R.id.task_icon);
-            holder.Experience = convertView.findViewById(R.id.task_experience);
-            holder.CheckBox = convertView.findViewById(R.id.task_checkbox);
-            convertView.setTag(holder);
-        } else {
-            holder = (Holder) convertView.getTag();
-        }
+        final Holder holder = new Holder();
+        convertView = LayoutInflater.from(getContext()).inflate(R.layout.task_item, parent, false);
+        holder.Item = convertView.findViewById(R.id.task_item);
+        holder.Name = convertView.findViewById(R.id.task_name);
+        holder.Color = convertView.findViewById(R.id.task_color);
+        holder.Icon = convertView.findViewById(R.id.task_icon);
+        holder.Experience = convertView.findViewById(R.id.task_experience);
+        holder.CheckBox = convertView.findViewById(R.id.task_checkbox);
+
         final View root = convertView.getRootView();
 
         holder.CheckBox.setPressed(false);
         final TaskStruct task = getItem(position);
         if (task != null) {
-            System.out.println("Found task " + task.Name + ", " + task.Category.Name);
-            System.out.println(task.DueDate + " :: " + System.currentTimeMillis());
-            if (task.DueDate - System.currentTimeMillis() <= 0) {
+            if (task.DueDate - System.currentTimeMillis() < 0) {
+                System.out.println(task.Name + ": OVERDUE!!!");
                 holder.Item.setBackgroundResource(R.color.CherryRed);
                 convertView.findViewById(R.id.task_border).setBackgroundResource(R.color.Firebrick);
             }
@@ -76,24 +70,22 @@ public class TaskAdapter extends ArrayAdapter<TaskStruct> {
 
                     int level = MainActivity.addExperience(task.Experience);
                     if (level > 0) {
-                        Toast.makeText(getContext(), "You are now level " + level + " !", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "You are now level " + (level + 1) + " !", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getContext(), "Assignment Completed!", Toast.LENGTH_SHORT).show();
                     }
 
                     final Animation fadeOut = new AlphaAnimation(1, 0);
                     fadeOut.setInterpolator(new AccelerateInterpolator());
-                    fadeOut.setDuration(800);
+                    fadeOut.setDuration(780);
 
                     holder.Item.startAnimation(fadeOut);
                     holder.Item.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            TaskAdapter.this.clear();
+                            TaskAdapter.this.remove(task);
                             if (Utils.TASKS.isEmpty()) {
                                 root.findViewById(R.id.empty_tasks).setVisibility(View.VISIBLE);
-                            } else {
-                                TaskAdapter.this.addAll(Utils.getSortedTasks());
                             }
                         }
                     }, 800);

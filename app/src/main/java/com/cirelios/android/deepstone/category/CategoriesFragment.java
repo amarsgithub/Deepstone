@@ -10,7 +10,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.cirelios.android.deepstone.R;
@@ -27,7 +26,6 @@ public class CategoriesFragment extends ListFragment implements OnItemClickListe
         View view = inflater.inflate(categories, container, false);
 
         if (Utils.CATEGORIES.isEmpty()) {
-            view.findViewById(R.id.list).setVisibility(View.GONE);
             Snackbar.make(view, "No categories!", Snackbar.LENGTH_LONG)
                     .setAction("CREATE", new View.OnClickListener() {
                         @Override

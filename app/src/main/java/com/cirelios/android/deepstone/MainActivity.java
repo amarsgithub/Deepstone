@@ -16,14 +16,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cirelios.android.deepstone.category.CategoriesFragment;
 import com.cirelios.android.deepstone.category.CreateCategoryFragment;
 import com.cirelios.android.deepstone.fragments.CalendarFragment;
 import com.cirelios.android.deepstone.fragments.HomeFragment;
-import com.cirelios.android.deepstone.fragments.ProfileFragment;
 import com.cirelios.android.deepstone.fragments.SettingsFragment;
-import com.cirelios.android.deepstone.fragments.SkillsFragment;
 import com.cirelios.android.deepstone.task.CreateTaskFragment;
 import com.cirelios.android.deepstone.task.TasksFragment;
 
@@ -116,16 +115,18 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.ds_overlay_home) {
             Utils.initializeDefaults();
             sendToFragment(new HomeFragment());
-        } else if (id == R.id.ds_overlay_assignments) {
+        } else if (id == R.id.ds_overlay_tasks) {
             sendToFragment(new TasksFragment());
         } else if (id == R.id.ds_overlay_calendar) {
             sendToFragment(new CalendarFragment());
-        } else if (id == R.id.ds_overlay_classes) {
+        } else if (id == R.id.ds_overlay_categories) {
             sendToFragment(new CategoriesFragment());
         } else if (id == R.id.ds_overlay_skills) {
-            sendToFragment(new SkillsFragment());
+            //sendToFragment(new SkillsFragment());
+            Toast.makeText(getApplicationContext(), "The skills page is still in development.", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.ds_overlay_profile) {
-            sendToFragment(new ProfileFragment());
+            //sendToFragment(new ProfileFragment());
+            Toast.makeText(getApplicationContext(), "The profile page is still in development.", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.ds_overlay_settings) {
             sendToFragment(new SettingsFragment());
         }
@@ -139,6 +140,16 @@ public class MainActivity extends AppCompatActivity
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, fragment)
                 .commit();
+    }
+
+    public void calendarCategoryClick(View view) {
+        /*ToggleButton button = view.findViewById(R.id.button_art);
+        int id = button.isPressed()
+        if (button.isPressed()) {
+            view.findViewById(R.id.day21).setBackgroundResource(R.color.RubberDuckyYellow);
+        } else {
+
+        }*/
     }
 
     public void day1(View view) {
@@ -282,7 +293,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void activity1(View view) {
-        Button activity1Button = findViewById(R.id.activity1);
+        Button activity1Button = findViewById(R.id.button_physics);
         Button day17 = findViewById(R.id.day17);
         Button day19 = findViewById(R.id.day19);
         if (activity1) { //if the color is red and it is selected (want to unselect here)
@@ -291,15 +302,15 @@ public class MainActivity extends AppCompatActivity
             day19.setBackgroundResource(R.drawable.button_border);
             activity1 = false;
         } else { //if the color is blue (want to select calendar days here)
-            activity1Button.setTextColor(getResources().getColor(R.color.RedWine));
-            day17.setBackgroundResource(R.drawable.button_border3);
-            day19.setBackgroundResource(R.drawable.button_border3);
+            activity1Button.setTextColor(getResources().getColor(R.color.Firebrick));
+            day17.setBackgroundResource(R.drawable.button_border_red);
+            day19.setBackgroundResource(R.drawable.button_border_red);
             activity1 = true;
         }
     }
 
     public void activity2(View view) {
-        Button activity2Button = findViewById(R.id.activity2);
+        Button activity2Button = findViewById(R.id.button_swamphacks);
         Button day19 = findViewById(R.id.day19);
         Button day20 = findViewById(R.id.day20);
         Button day21 = findViewById(R.id.day21);
@@ -311,17 +322,17 @@ public class MainActivity extends AppCompatActivity
             day21.setBackgroundResource(R.drawable.button_border);
             activity2 = false;
         } else { //if the color is blue (want to select calendar days here)
-            activity2Button.setTextColor(getResources().getColor(R.color.RedWine));
-            day19.setBackgroundResource(R.drawable.button_border3);
-            day20.setBackgroundResource(R.drawable.button_border3);
-            day21.setBackgroundResource(R.drawable.button_border3);
+            activity2Button.setTextColor(getResources().getColor(R.color.AndroidBlue));
+            day19.setBackgroundResource(R.drawable.button_border_pink);
+            day20.setBackgroundResource(R.drawable.button_border_pink);
+            day21.setBackgroundResource(R.drawable.button_border_pink);
             activity2 = true;
         }
 
     }
 
     public void activity3(View view) {
-        Button activity3Button = findViewById(R.id.activity3);
+        Button activity3Button = findViewById(R.id.button_calculus);
         Button day1 = findViewById(R.id.day1);
         Button day5 = findViewById(R.id.day5);
         Button day8 = findViewById(R.id.day8);
@@ -344,22 +355,22 @@ public class MainActivity extends AppCompatActivity
             day29.setBackgroundResource(R.drawable.button_border);
             activity3 = false;
         } else { //if the color is blue (want to select calendar days here)
-            activity3Button.setTextColor(getResources().getColor(R.color.RedWine));
-            day1.setBackgroundResource(R.drawable.button_border3);
-            day5.setBackgroundResource(R.drawable.button_border3);
-            day8.setBackgroundResource(R.drawable.button_border3);
-            day12.setBackgroundResource(R.drawable.button_border3);
-            day15.setBackgroundResource(R.drawable.button_border3);
-            day19.setBackgroundResource(R.drawable.button_border3);
-            day22.setBackgroundResource(R.drawable.button_border3);
-            day26.setBackgroundResource(R.drawable.button_border3);
-            day29.setBackgroundResource(R.drawable.button_border3);
+            activity3Button.setTextColor(getResources().getColor(R.color.HeliotropePurple));
+            day1.setBackgroundResource(R.drawable.button_border_black);
+            day5.setBackgroundResource(R.drawable.button_border_black);
+            day8.setBackgroundResource(R.drawable.button_border_black);
+            day12.setBackgroundResource(R.drawable.button_border_black);
+            day15.setBackgroundResource(R.drawable.button_border_black);
+            day19.setBackgroundResource(R.drawable.button_border_black);
+            day22.setBackgroundResource(R.drawable.button_border_black);
+            day26.setBackgroundResource(R.drawable.button_border_black);
+            day29.setBackgroundResource(R.drawable.button_border_black);
             activity3 = true;
         }
     }
 
     public void activity4(View view) {
-        Button activity4Button = findViewById(R.id.activity4);
+        Button activity4Button = findViewById(R.id.button_programming);
         Button day1 = findViewById(R.id.day1);
         Button day12 = findViewById(R.id.day12);
         Button day26 = findViewById(R.id.day26);
@@ -371,17 +382,17 @@ public class MainActivity extends AppCompatActivity
             day26.setBackgroundResource(R.drawable.button_border);
             activity4 = false;
         } else { //if the color is blue (want to select calendar days here)
-            activity4Button.setTextColor(getResources().getColor(R.color.RedWine));
-            day1.setBackgroundResource(R.drawable.button_border3);
-            day12.setBackgroundResource(R.drawable.button_border3);
-            day26.setBackgroundResource(R.drawable.button_border3);
+            activity4Button.setTextColor(getResources().getColor(R.color.PumpkinOrange));
+            day1.setBackgroundResource(R.drawable.button_border_orange);
+            day12.setBackgroundResource(R.drawable.button_border_orange);
+            day26.setBackgroundResource(R.drawable.button_border_orange);
             activity4 = true;
         }
 
     }
 
     public void activity5(View view) {
-        Button activity5Button = findViewById(R.id.activity5);
+        Button activity5Button = findViewById(R.id.button_chemistry);
         Button day4 = findViewById(R.id.day4);
         Button day11 = findViewById(R.id.day11);
         Button day18 = findViewById(R.id.day18);
@@ -395,11 +406,11 @@ public class MainActivity extends AppCompatActivity
             day25.setBackgroundResource(R.drawable.button_border);
             activity5 = false;
         } else { //if the color is blue (want to select calendar days here)
-            activity5Button.setTextColor(getResources().getColor(R.color.RedWine));
-            day4.setBackgroundResource(R.drawable.button_border3);
-            day11.setBackgroundResource(R.drawable.button_border3);
-            day18.setBackgroundResource(R.drawable.button_border3);
-            day25.setBackgroundResource(R.drawable.button_border3);
+            activity5Button.setTextColor(getResources().getColor(R.color.NebulaGreen));
+            day4.setBackgroundResource(R.drawable.button_border_green);
+            day11.setBackgroundResource(R.drawable.button_border_green);
+            day18.setBackgroundResource(R.drawable.button_border_green);
+            day25.setBackgroundResource(R.drawable.button_border_green);
             activity5 = true;
         }
 

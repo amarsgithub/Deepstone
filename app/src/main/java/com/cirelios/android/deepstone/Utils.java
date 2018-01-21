@@ -1,5 +1,7 @@
 package com.cirelios.android.deepstone;
 
+import android.view.View;
+
 import com.cirelios.android.deepstone.category.CategoryStruct;
 import com.cirelios.android.deepstone.task.TaskStruct;
 import com.google.common.collect.ImmutableMap;
@@ -89,8 +91,7 @@ public class Utils {
 
     public static final Map<String, TaskStruct> TASKS = Maps.newHashMap();
     public static final Map<String, CategoryStruct> CATEGORIES = Maps.newHashMap();
-
-    public static final TaskStruct[][] CALENDAR = new TaskStruct[7][5];
+    public static final Map<Integer, Integer> CALENDAR = Maps.newHashMap();
 
     public static int calculateXP(int diff, int time) {
         return (int) Math.round(Math.sqrt(diff) * time);
@@ -133,7 +134,9 @@ public class Utils {
         Collections.sort(tasks, new Comparator<TaskStruct>() {
             @Override
             public int compare(TaskStruct t1, TaskStruct t2) {
-                return Integer.compare(t1.Experience, t2.Experience);
+                boolean o1 = t1.DueDate - System.currentTimeMillis() < 0;
+                boolean o2 = t2.DueDate - System.currentTimeMillis() < 0;
+                return o1 ? o2 ? Integer.compare(t2.Experience, t1.Experience) : -1 : o2 ? 1 : Integer.compare(t2.Experience, t1.Experience);
             }
         });
         return tasks;
@@ -144,28 +147,32 @@ public class Utils {
         Collections.sort(Categories, new Comparator<CategoryStruct>() {
             @Override
             public int compare(CategoryStruct c1, CategoryStruct c2) {
-                return c1.Name.compareTo(c2.Name);
+                return c2.Name.compareTo(c1.Name);
             }
         });
         return Categories;
     }
 
     public static void initializeDefaults() {
-        CategoryStruct art = createCategory("Art", R.color.Jellyfish, R.drawable.brush);
-        CategoryStruct calculus = createCategory("Calculus", R.color.Night, R.drawable.matrix);
+        CategoryStruct art = createCategory("Art", R.color.DeepPink, R.drawable.brush);
+        CategoryStruct calculus = createCategory("Calculus", R.color.HeliotropePurple, R.drawable.matrix);
         CategoryStruct chemistry = createCategory("Chemistry", R.color.NebulaGreen, R.drawable.flask);
-        CategoryStruct history = createCategory("History", R.color.HeliotropePurple, R.drawable.earth);
+        CategoryStruct history = createCategory("History", R.color.Night, R.drawable.earth);
         CategoryStruct english = createCategory("English", R.color.Yellow, R.drawable.book_open_page_variant);
         CategoryStruct physics = createCategory("Physics", R.color.Firebrick, R.drawable.magnet_on);
         CategoryStruct programming = createCategory("Programming", R.color.PumpkinOrange, R.drawable.buffer);
-        CategoryStruct swamphacks = createCategory("SwampHacks", R.color.DeepPink, R.drawable.alert);
-        createTask(art, "Tesselation", 1516548600000L, 7200, 120);
+        CategoryStruct swamphacks = createCategory("SwampHacks", R.color.AndroidBlue, R.drawable.alert);
+        createTask(art, "Tesselation", 1516548600000L, 7200, 230);
         createTask(calculus, "WebAssign #3", 1516942799000L, 10800, 560);
-        createTask(calculus, "Study Group", 1516797000000L, 3600, 90);
+        createTask(calculus, "Study Group", 1516797000000L, 3600, 110);
         createTask(chemistry, "Titration Lab", 1516643400000L, 12600, 740);
         createTask(physics, "Mechanics HW", 1516894800000L, 5400, 400);
         createTask(programming, "Unity Lessons", 1517350200000L, 25200, 1280);
-        createTask(swamphacks, "Life Controller", 1516548600000L, 129600, 9001);
+        createTask(swamphacks, "Time Controller", 1516548600000L, 129600, 9001);
+        for (TaskStruct task : TASKS.values()) {
+            long time = task.DueDate - System.currentTimeMillis();
+            System.out.println(task.Name + ": (" + time + ") --" + task.DueDate + " vs " + System.currentTimeMillis());
+        }
     }
 
     private static void createTask(CategoryStruct category, String name, long dueDate, int time, int experience) {

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/walkthrough_2a"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="56dp"
     android:background="@color/Primary"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.cirelios.android.deepstone.fragments.CalendarFragment">
 
     <RelativeLayout
         android:id="@+id/calendarView"
@@ -28,7 +30,6 @@
             android:layout_toEndOf="@id/ds_calendar_image"
             android:clickable="true"
             android:gravity="center_vertical"
-            android:onClick="onClick"
             android:text="Calendar"
             android:textColor="@color/Accent"
             android:textSize="18dp" />
@@ -52,6 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="32dp"
+        android:background="@color/Iridium"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -64,7 +66,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="20dp"
-                android:src="@drawable/tessaract" />
+                android:src="@drawable/arrow_left_bold" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -81,7 +83,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="20dp"
-                android:src="@drawable/tessaract" />
+                android:src="@drawable/arrow_right_bold" />
 
         </RelativeLayout>
 
@@ -165,7 +167,7 @@
                     android:background="@drawable/button_border"
                     android:onClick="day311"
                     android:text="31"
-                    android:textColor="@color/SlateBlue"
+                    android:textColor="@color/DarkGray"
                     android:textSize="18sp" />
 
                 <Button
@@ -554,7 +556,7 @@
                 android:background="@drawable/button_border"
                 android:onClick="day31"
                 android:text="31"
-                android:textColor="@color/SlateBlue"
+                android:textColor="@color/DarkGray"
                 android:textSize="18sp" />
 
             <Button
@@ -565,7 +567,7 @@
                 android:background="@drawable/button_border"
                 android:onClick="day122"
                 android:text="2"
-                android:textColor="@color/SlateBlue"
+                android:textColor="@color/DarkGray"
                 android:textSize="18sp" />
 
             <Button
@@ -576,7 +578,7 @@
                 android:background="@drawable/button_border"
                 android:onClick="day222"
                 android:text="2"
-                android:textColor="@color/SlateBlue"
+                android:textColor="@color/DarkGray"
                 android:textSize="18sp" />
 
             <Button
@@ -587,7 +589,7 @@
                 android:background="@drawable/button_border"
                 android:onClick="day322"
                 android:text="3"
-                android:textColor="@color/SlateBlue"
+                android:textColor="@color/DarkGray"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -595,62 +597,111 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/activity1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:onClick="activity1"
-                android:text="Physics"
-                android:textColor="@color/MidnightBlue"
-                android:textSize="18sp" />
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/activity2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:layout_weight="1"
-                android:onClick="activity2"
-                android:text="SwampHacks!!!"
-                android:textColor="@color/MidnightBlue"
-                android:textSize="18sp" />
+                <ToggleButton
+                    android:id="@+id/button_art"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:onClick="calendarCategoryClick"
+                    android:textColor="@color/MidnightBlue"
+                    android:textOff="Art"
+                    android:textOn="Art"
+                    android:textSize="18sp" />
 
-            <Button
-                android:id="@+id/activity3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:layout_weight="1"
-                android:onClick="activity3"
-                android:text="Computer science"
-                android:textColor="@color/MidnightBlue"
-                android:textSize="18sp" />
+                <ToggleButton
+                    android:id="@+id/button_calculus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:onClick="activity3"
+                    android:textColor="@color/MidnightBlue"
+                    android:textOff="Calculus"
+                    android:textOn="Calculus"
+                    android:textSize="18sp" />
 
-            <Button
-                android:id="@+id/activity4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:layout_weight="1"
-                android:onClick="activity4"
-                android:text="Chemistry"
-                android:textColor="@color/MidnightBlue"
-                android:textSize="18sp" />
+                <ToggleButton
+                    android:id="@+id/button_chemistry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:onClick="activity5"
+                    android:textColor="@color/MidnightBlue"
+                    android:textOff="Chemistry"
+                    android:textOn="Chemistry"
+                    android:textSize="18sp" />
 
-            <Button
-                android:id="@+id/activity5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
+                <ToggleButton
+                    android:id="@+id/button_english"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:onClick="calendarCategoryClick"
+                    android:textColor="@color/MidnightBlue"
+                    android:textOff="English"
+                    android:textOn="English"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:onClick="activity5"
-                android:text="Calculus"
-                android:textColor="@color/MidnightBlue"
-                android:textSize="18sp" />
+                android:orientation="vertical">
+
+                <ToggleButton
+                    android:id="@+id/button_history"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:onClick="calendarCategoryClick"
+                    android:textColor="@color/MidnightBlue"
+                    android:textOff="History"
+                    android:textOn="History"
+                    android:textSize="18sp" />
+
+                <ToggleButton
+                    android:id="@+id/button_physics"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:onClick="activity1"
+                    android:textColor="@color/MidnightBlue"
+                    android:textOff="Physics"
+                    android:textOn="Physics"
+                    android:textSize="18sp" />
+
+                <ToggleButton
+                    android:id="@+id/button_programming"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:onClick="activity4"
+                    android:textColor="@color/MidnightBlue"
+                    android:textOff="Programming"
+                    android:textOn="Programming"
+                    android:textSize="18sp" />
+
+                <ToggleButton
+                    android:id="@+id/button_swamphacks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:onClick="activity2"
+                    android:textColor="@color/MidnightBlue"
+                    android:textOff="SwampHacks"
+                    android:textOn="SwampHacks"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
