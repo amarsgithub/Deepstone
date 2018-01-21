@@ -17,13 +17,13 @@
         android:layout_height="wrap_content"
         android:text="Deepstone"
         android:textSize="22sp"
-        android:textColor="@color/platinum"/>
+        android:textColor="@color/Platinum"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Blake Anderson | Amar Suchak"
         android:textSize="14sp"
-        android:textColor="@color/metallic_silver"/>
+        android:textColor="@color/MetallicSilver"/>
 
 </LinearLayout>

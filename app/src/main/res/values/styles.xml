@@ -1,24 +1,93 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#112428</item>
-        <item name="colorPrimaryDark">@color/night</item>
-        <item name="colorAccent">@android:color/holo_blue_bright</item>
-        <item name="android:textColorSecondary">@color/platinum</item>
-        <item name="android:colorBackground">@color/dark_slate_blue</item>
-        <item name="android:textColorPrimaryInverse">@color/iridium</item>
-        <item name="android:textColorPrimary">@color/platinum</item>
+        <item name="colorPrimary">@color/Primary</item>
+        <item name="colorPrimaryDark">@color/PrimaryDark</item>
+        <item name="colorAccent">@color/AndroidBlue</item>
+        <item name="android:colorBackground">@color/Iridium</item>
+        <item name="android:textColorPrimary">@color/CarbonGray</item>
+        <item name="android:textColorPrimaryInverse">@color/Iridium</item>
+        <item name="android:textColorSecondaryInverse">@color/Iridium</item>
+        <item name="android:textColorSecondary">@color/AndroidDarkBlue</item>
+        <item name="android:colorForeground">@color/Night</item>
+        <item name="android:navigationBarColor">@color/EerieBlack</item>
+        <item name="android:statusBarColor">@color/EerieBlack</item>
+        <item name="android:windowBackground">@color/Iridium</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="colorAccent">@color/CyanAqua</item>
+        <item name="android:textColorPrimary">@color/Platinum</item>
+        <item name="android:statusBarColor">@color/EerieBlack</item>
+    </style>
+
+    <style name="AppTheme.Buttons" parent="AppTheme">
+        <item name="android:textColor">@color/MidnightBlue</item>
+    </style>
+
+    <style name="MyBorderlessButton">
+        <!-- Set background drawable and text size of the buttons here -->
+        <item name="android:background">@color/RedWine</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="MyButtonBar">
+        <!-- Define a background for the button bar and a divider between the buttons here -->
+        <item name="android:background">@color/NebulaGreen</item>
+    </style>
+
+    <style name="MyAlertDialogTitle">
+        <item name="android:maxLines">1</item>
+        <item name="android:scrollHorizontally">true</item>
+    </style>
+
+    <style name="MyAlertTextAppearance">
+        <!-- Set text size and color of title and message here -->
+        <item name="android:textSize"> 24dp </item>
+        <item name="android:textColor">@color/AndroidGreen</item>
+    </style>
+
+    <style name="MyAlertDialogTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowTitleStyle">@style/MyAlertDialogTitle</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowMinWidthMajor">@android:dimen/dialog_min_width_major</item>
+        <item name="android:windowMinWidthMinor">@android:dimen/dialog_min_width_minor</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:textAppearanceMedium">@style/MyAlertTextAppearance</item>
+        <!-- If you don't want your own button bar style use
+                @android:style/Holo.Light.ButtonBar.AlertDialog
+                and
+                ?android:attr/borderlessButtonStyle
+             instead of @style/MyButtonBar and @style/MyBorderlessButton -->
+        <item name="android:buttonBarStyle">@style/MyButtonBar</item>
+        <item name="android:buttonBarButtonStyle">@style/MyBorderlessButton</item>
+    </style>
+
+    <style name="MyAlertDialogStyle">
+        <!-- Define background colors of title, message, buttons, etc. here -->
+        <item name="android:fullDark">@color/LightSlateGray</item>
+        <item name="android:topDark">@color/LightSlateGray</item>
+        <item name="android:centerDark">@color/LightSlateGray</item>
+        <item name="android:bottomDark">@color/LightSlateGray</item>
+        <item name="android:fullBright">@color/LightSlateGray</item>
+        <item name="android:topBright">@color/LightSlateGray</item>
+        <item name="android:centerBright">@color/LightSlateGray</item>
+        <item name="android:bottomBright">@color/LightSlateGray</item>
+        <item name="android:bottomMedium">@color/LightSlateGray</item>
+        <item name="android:centerMedium">@color/LightSlateGray</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.NoActionBar.DarkText" parent="AppTheme.NoActionBar" >
+        <item name="android:textColorPrimary">@color/EerieBlack</item>
+    </style>
 
 </resources>

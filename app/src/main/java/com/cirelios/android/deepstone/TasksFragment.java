@@ -31,11 +31,11 @@ public class TasksFragment extends Fragment {
 
         Task a = new Task();
         a.name = "Task A";
-        a.color = R.color.metallic_silver;
+        a.color = R.color.MetallicSilver;
         a.experience = 117;
         Task b = new Task();
         b.name = "B Task";
-        b.color = R.color.iridium;
+        b.color = R.color.Iridium;
         b.experience = -14;
 
         System.out.println("TaskArrayAdapter");
