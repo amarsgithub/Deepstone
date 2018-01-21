@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 import com.cirelios.android.deepstone.R;
-import com.cirelios.android.deepstone.managers.CategoriesManager;
+import com.cirelios.android.deepstone.Utils;
 
 public class CreateCategoryFragment extends Fragment {
 
@@ -34,8 +34,9 @@ public class CreateCategoryFragment extends Fragment {
                     CategoryStruct category = new CategoryStruct();
                     category.Name = className.getText().toString();
                     category.Description = classDesc.getText().toString();
-                    category.Color = CategoryStruct.getColorID(classColor.getSelectedItem().toString());
-                    CategoriesManager.addClass(category);
+                    category.Color = Utils.COLORS.get(classColor.getSelectedItem().toString());
+                    category.Icon = Utils.ICONS.get(classIcon.getSelectedItem().toString());
+                    Utils.CATEGORIES.put(category.Name, category);
                     getActivity().getSupportFragmentManager().beginTransaction()
                             .setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left)
                             .replace(R.id.fragment_container, new CategoriesFragment()).commit();

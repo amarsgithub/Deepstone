@@ -1,6 +1,13 @@
 package com.cirelios.android.deepstone;
 
+import com.cirelios.android.deepstone.category.CategoryStruct;
+import com.cirelios.android.deepstone.task.TaskStruct;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+
+import java.util.List;
+import java.util.Map;
 
 public class Utils {
 
@@ -73,8 +80,25 @@ public class Utils {
             .put("X-Box Controller", R.drawable.xbox_controller)
             .build();
 
+    public static final Map<String, TaskStruct> TASKS = Maps.newHashMap();
+    public static final Map<String, CategoryStruct> CATEGORIES = Maps.newHashMap();
+
     public static int calculateXP(int diff, int time) {
         return (int) Math.round(Math.sqrt(diff) * time);
+    }
+
+    public static List<TaskStruct> getSortedTasks() {
+        return Lists.newArrayList(TASKS.values());
+        /*return TASKS.values().stream()
+                .sorted(Comparator.comparing(o -> o.Experience))
+                .collect(Collectors.toList());*/
+    }
+
+    public static List<CategoryStruct> getSortedCategories() {
+        return Lists.newArrayList(CATEGORIES.values());
+        /*return CATEGORIES.values().stream()
+                .sorted(Comparator.comparing(o -> o.Name))
+                .collect(Collectors.toList());*/
     }
 
 }

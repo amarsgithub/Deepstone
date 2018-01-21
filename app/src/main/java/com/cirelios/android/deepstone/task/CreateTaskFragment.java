@@ -14,12 +14,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.cirelios.android.deepstone.R;
-import com.cirelios.android.deepstone.managers.AssignmentsManager;
-import com.cirelios.android.deepstone.managers.CategoriesManager;
+import com.cirelios.android.deepstone.Utils;
 import com.cirelios.android.deepstone.category.CategoryStruct;
-import com.cirelios.android.deepstone.managers.ExperienceManager;
-
-import java.util.List;
+import com.cirelios.android.deepstone.managers.AssignmentsManager;
+import com.google.common.collect.Lists;
 
 public class CreateTaskFragment extends Fragment {
 
@@ -33,13 +31,8 @@ public class CreateTaskFragment extends Fragment {
         final EditText asgmtDesc = layout.findViewById(R.id.task_create_desc);
 
         final Spinner classes = layout.findViewById(R.id.task_create_categories);
-        List<CategoryStruct> csList = CategoriesManager.getCategoriesList();
-        String[] classNames = new String[csList.size()];
-        for (int i = 0; i < csList.size(); i++) {
-            classNames[i] = csList.get(i).Name;
-        }
         classes.setAdapter(new ArrayAdapter<>(getActivity().getApplicationContext(),
-                R.layout.spinner_text, classNames));
+                R.layout.spinner_text, Lists.newArrayList(Utils.CATEGORIES.keySet())));
 
         final SeekBar difficultyBar = layout.findViewById(R.id.difficultyBar);
         final SeekBar urgencyBar = layout.findViewById(R.id.urgencyBar);
@@ -100,13 +93,7 @@ public class CreateTaskFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String name = classes.getSelectedItem().toString();
-                CategoryStruct category = null;
-                for (CategoryStruct cs : CategoriesManager.getCategoriesList()) {
-                    if (cs.Name.equals(name)) {
-                        category = cs;
-                        break;
-                    }
-                }
+                CategoryStruct category = Utils.CATEGORIES.get(name);
                 TaskStruct task = new TaskStruct();
                 task.Category = category;
                 task.Name = asgmtName.getText().toString();

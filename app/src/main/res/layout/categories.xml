@@ -26,7 +26,7 @@
             android:layout_marginStart="24dp"
             android:layout_toEndOf="@id/categories_icon"
             android:gravity="center_vertical"
-            android:text="Class List"
+            android:text="Categories"
             android:textColor="@color/Accent"
             android:textSize="18dp" />
 
@@ -45,12 +45,12 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="32dp"
         android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/ds_noClasses"
+            android:id="@+id/empty_category"
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:background="@color/DarkSlateBlue"
@@ -81,12 +81,12 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="12dp"
                 android:layout_weight="1"
-                android:text="No Classes!"
+                android:text="No Categories!"
                 android:textSize="22dp"
                 android:textColor="@color/Platinum"/>
 
             <Button
-                android:id="@+id/ds_class_create"
+                android:id="@+id/empty_category_create"
                 android:layout_width="108dp"
                 android:layout_height="42dp"
                 android:layout_gravity="center_vertical"
@@ -97,23 +97,14 @@
 
         </LinearLayout>
 
+        <ListView android:id="@android:id/list"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginTop="32dp" />
+
     </LinearLayout>
-
-    <ListView android:id="@android:id/list"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="32dp" />
-
-    <Button
-        android:id="@+id/create_category"
-        android:layout_width="108dp"
-        android:layout_height="42dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginEnd="8dp"
-        android:text="Create!"
-        android:textColor="@color/EerieBlack"
-        android:theme="@style/AppTheme.NoActionBar.DarkText"/>
 
 </android.support.design.widget.CoordinatorLayout>

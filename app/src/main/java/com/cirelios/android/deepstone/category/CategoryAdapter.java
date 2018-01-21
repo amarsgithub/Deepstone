@@ -36,8 +36,9 @@ public class CategoryAdapter extends ArrayAdapter<CategoryStruct> {
 
         CategoryStruct category = getItem(position);
         if (category != null) {
+            System.out.println("Setting category: " + category.Name + ", " + category.Color + ", " + category.Icon);
             Name.setText(category.Name);
-            Color.setBackgroundColor(category.Color);
+            Color.setBackgroundResource(category.Color);
             Icon.setImageResource(category.Icon);
         }
 

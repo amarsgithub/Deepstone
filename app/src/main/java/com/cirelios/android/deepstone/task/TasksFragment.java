@@ -17,13 +17,13 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.cirelios.android.deepstone.R;
+import com.cirelios.android.deepstone.Utils;
 import com.cirelios.android.deepstone.category.CreateCategoryFragment;
 import com.cirelios.android.deepstone.managers.AssignmentsManager;
-import com.cirelios.android.deepstone.managers.CategoriesManager;
 
 public class TasksFragment extends ListFragment implements OnItemClickListener {
 
-    private ArrayAdapter adapter;
+    private ArrayAdapter<TaskStruct> adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class TasksFragment extends ListFragment implements OnItemClickListener {
         if (AssignmentsManager.getAssignmentList().isEmpty()) {
             Button createAssignment = view.findViewById(R.id.asgmt_create);
 
-            if (CategoriesManager.getCategoriesList().isEmpty()) {
+            if (Utils.CATEGORIES.isEmpty()) {
                 Snackbar.make(view, "No classes exist", Snackbar.LENGTH_LONG)
                         .setAction("CREATE", new View.OnClickListener() {
                             @Override

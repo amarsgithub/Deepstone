@@ -1,9 +1,6 @@
 package com.cirelios.android.deepstone;
 
 import android.content.DialogInterface;
-import android.graphics.Color;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.RectShape;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -27,7 +24,6 @@ import com.cirelios.android.deepstone.fragments.HomeFragment;
 import com.cirelios.android.deepstone.fragments.ProfileFragment;
 import com.cirelios.android.deepstone.fragments.SettingsFragment;
 import com.cirelios.android.deepstone.fragments.SkillsFragment;
-import com.cirelios.android.deepstone.managers.CategoriesManager;
 import com.cirelios.android.deepstone.task.CreateTaskFragment;
 import com.cirelios.android.deepstone.task.TasksFragment;
 
@@ -61,7 +57,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 System.out.println("Debug");
-                if (CategoriesManager.getCategoriesList().isEmpty()) {
+                if (Utils.CATEGORIES.isEmpty()) {
                     new AlertDialog.Builder(MainActivity.this, R.style.AppTheme_NoActionBar)
                             .setMessage("You must have an existing category to create an Assignment!\n\nCreate a new category?\n")
                             .setPositiveButton("Yes!", new DialogInterface.OnClickListener() {
@@ -286,9 +282,9 @@ public class MainActivity extends AppCompatActivity
 
 
     public void activity1(View view) {
-        Button activity1Button = (Button) findViewById(R.id.activity1);
-        Button day17 = (Button) findViewById(R.id.day17);
-        Button day19 = (Button) findViewById(R.id.day19);
+        Button activity1Button = findViewById(R.id.activity1);
+        Button day17 = findViewById(R.id.day17);
+        Button day19 = findViewById(R.id.day19);
         if (activity1) { //if the color is red and it is selected (want to unselect here)
             activity1Button.setTextColor(getResources().getColor(R.color.MidnightBlue));
             day17.setBackgroundResource(R.drawable.button_border);
@@ -303,10 +299,10 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void activity2(View view) {
-        Button activity2Button = (Button) findViewById(R.id.activity2);
-        Button day19 = (Button) findViewById(R.id.day19);
-        Button day20 = (Button) findViewById(R.id.day20);
-        Button day21 = (Button) findViewById(R.id.day21);
+        Button activity2Button = findViewById(R.id.activity2);
+        Button day19 = findViewById(R.id.day19);
+        Button day20 = findViewById(R.id.day20);
+        Button day21 = findViewById(R.id.day21);
 
         if (activity2) { //if the color is red and it is selected (want to unselect here)
             activity2Button.setTextColor(getResources().getColor(R.color.MidnightBlue));
@@ -325,16 +321,16 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void activity3(View view) {
-        Button activity3Button = (Button) findViewById(R.id.activity3);
-        Button day1 = (Button) findViewById(R.id.day1);
-        Button day5 = (Button) findViewById(R.id.day5);
-        Button day8 = (Button) findViewById(R.id.day8);
-        Button day12 = (Button) findViewById(R.id.day12);
-        Button day15 = (Button) findViewById(R.id.day15);
-        Button day19 = (Button) findViewById(R.id.day19);
-        Button day22 = (Button) findViewById(R.id.day22);
-        Button day26 = (Button) findViewById(R.id.day26);
-        Button day29 = (Button) findViewById(R.id.day29);
+        Button activity3Button = findViewById(R.id.activity3);
+        Button day1 = findViewById(R.id.day1);
+        Button day5 = findViewById(R.id.day5);
+        Button day8 = findViewById(R.id.day8);
+        Button day12 = findViewById(R.id.day12);
+        Button day15 = findViewById(R.id.day15);
+        Button day19 = findViewById(R.id.day19);
+        Button day22 = findViewById(R.id.day22);
+        Button day26 = findViewById(R.id.day26);
+        Button day29 = findViewById(R.id.day29);
         if (activity3) { //if the color is red and it is selected (want to unselect here)
             activity3Button.setTextColor(getResources().getColor(R.color.MidnightBlue));
             day1.setBackgroundResource(R.drawable.button_border);
@@ -363,10 +359,10 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void activity4(View view) {
-        Button activity4Button = (Button) findViewById(R.id.activity4);
-        Button day1 = (Button) findViewById(R.id.day1);
-        Button day12 = (Button) findViewById(R.id.day12);
-        Button day26 = (Button) findViewById(R.id.day26);
+        Button activity4Button = findViewById(R.id.activity4);
+        Button day1 = findViewById(R.id.day1);
+        Button day12 = findViewById(R.id.day12);
+        Button day26 = findViewById(R.id.day26);
 
         if (activity4) { //if the color is red and it is selected (want to unselect here)
             activity4Button.setTextColor(getResources().getColor(R.color.MidnightBlue));
@@ -385,11 +381,11 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void activity5(View view) {
-        Button activity5Button = (Button) findViewById(R.id.activity5);
-        Button day4 = (Button) findViewById(R.id.day4);
-        Button day11 = (Button) findViewById(R.id.day11);
-        Button day18 = (Button) findViewById(R.id.day18);
-        Button day25 = (Button) findViewById(R.id.day25);
+        Button activity5Button = findViewById(R.id.activity5);
+        Button day4 = findViewById(R.id.day4);
+        Button day11 = findViewById(R.id.day11);
+        Button day18 = findViewById(R.id.day18);
+        Button day25 = findViewById(R.id.day25);
 
         if (activity5) { //if the color is red and it is selected (want to unselect here)
             activity5Button.setTextColor(getResources().getColor(R.color.MidnightBlue));

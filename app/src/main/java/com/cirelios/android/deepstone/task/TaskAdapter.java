@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ArrayAdapter;
@@ -51,7 +50,7 @@ public class TaskAdapter extends ArrayAdapter<TaskStruct> {
         if (task != null) {
             System.out.println("Found task " + task.Name + ", " + task.Category.Name);
             Name.setText(task.Name);
-            Color.setBackgroundColor(task.Category.Color);
+            Color.setBackgroundResource(task.Category.Color);
             Icon.setImageResource(task.Category.Icon);
             Experience.setText(Integer.toString(task.Experience));
             CheckBox.setOnClickListener(new View.OnClickListener() {
@@ -66,27 +65,49 @@ public class TaskAdapter extends ArrayAdapter<TaskStruct> {
                     if (addLevel != 0) {
                         level = Math.random() > .5 ? level + 1 : level + 2;
                         ExperienceManager.setProfileTitle(level);
-                        Toast toast = Toast.makeText(getContext(), "You are now level " + 0 + " !", Toast.LENGTH_SHORT);
-                        toast.show();
+                        Toast.makeText(getContext(), "You are now level " + 0 + " !", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast toast = Toast.makeText(getContext(), "Assignment Completed!", Toast.LENGTH_SHORT);
-                        toast.show();
+                        Toast.makeText(getContext(), "Assignment Completed!", Toast.LENGTH_SHORT).show();
                     }
 
+                    AlphaAnimation anim = new AlphaAnimation(1, 0);
+                    anim.setDuration(800);
+                    anim.setAnimationListener(new Animation.AnimationListener() {
+                        @Override
+                        public void onAnimationStart(Animation animation) {
+                            System.out.println("Start");
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animation animation) {
+                            System.out.println("End");
+                            Item.setVisibility(View.GONE);
+                        }
+
+                        @Override
+                        public void onAnimationRepeat(Animation animation) {
+                            System.out.println("repeat?");
+                        }
+                    });
+                    Item.startAnimation(anim);
+
+                    /*System.out.println("Begin animation");
                     final Animation fadeOut = new AlphaAnimation(1, 0);
                     fadeOut.setInterpolator(new AccelerateInterpolator());
                     fadeOut.setDuration(800);
 
                     Item.startAnimation(fadeOut);
+                    System.out.println("Fading out");
                     Item.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            Item.setVisibility(View.GONE);
                             if (AssignmentsManager.getAssignmentList().isEmpty()) {
-                                root.findViewById(R.id.ds_noAssignments).setVisibility(View.GONE);
+                                root.findViewById(R.id.ds_noAssignments).setVisibility(View.VISIBLE);
                             }
+                            System.out.println("Done");
                         }
                     }, 800);
+                    System.out.println("Over");*/
                 }
             });
         }
